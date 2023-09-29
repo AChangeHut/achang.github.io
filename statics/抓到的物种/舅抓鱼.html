@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>抓到的物种</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">舅抓鱼</h1>
+
+<!--![fishs_swimming](./fishs_swimming.MOV)-->
+
+<p><video width="600" controls>
+  <source src="fishs_swimming.MOV" type="video/mp4">
+</video></p>
+
+<h2 id="toc_1">介绍</h2>
+
+<h2 id="toc_2">鱼类</h2>
+
+<h3 id="toc_3">红腹罗非鱼(Redbelly Tilapia)</h3>
+
+<p><img src="./红腹罗非鱼(Redbelly Tilapia)-外来鱼-超强适应能力.png" alt="红腹罗非鱼" height="160"/></p>
+
+<!--![红腹罗非鱼](./红腹罗非鱼(Redbelly Tilapia)-外来鱼-超强适应能力.png)-->
+
+<ul>
+<li>这种鱼广泛分布于非洲北半部和中东的淡水和微咸水域。在非洲、亚洲、澳大利亚和北美洲的其他地区，它已作为食用鱼或水生植物的对照物被引入。引入后，它们有时具有侵入性并威胁当地生态系统和物种。</li>
+<li>罗非鱼通常生活于淡水中，可以存活于在湖、河、池塘的浅水中，也能生活于出海口、近岸沿海等不同盐分含量的咸水中。它有很强的适应能力，且对溶氧较少之水有极强之适应性，因此在许多地方成为入侵物种，并被列入世界百大外来入侵种名单。绝大部分罗非鱼是杂食性，常吃水中植物和碎物。此鱼在面积狭小之水域中亦能繁殖，在水稻田里亦能够生长。----维基百科</li>
+</ul>
+
+<p>参考资料:</p>
+
+<blockquote>
+<p><a href="https://academic-accelerator.com/encyclopedia/zh-cn/redbelly-tilapia">红腹罗非鱼 Redbelly Tilapia</a></p>
+
+<p><a href="https://zh.wikipedia.org/wiki/%E7%BD%97%E9%9D%9E%E9%B1%BC">维基百科-罗非鱼</a></p>
+</blockquote>
+
+<h3 id="toc_4">青鳉鱼(Oryzias latipes)</h3>
+
+<p><img src="./青鳉鱼(Oryzias latipes)-国际医学用鱼.png" alt="青鳉鱼" height="160"/>
+<!--![青鳉鱼](./青鳉鱼(Oryzias latipes)-国际医学用鱼.png)--></p>
+
+<ul>
+<li>青鳉（学名：Oryzias latipes），又称米鳉，俗称稻田鱼、鱼目娘、米鳉、弹鱼，是青鳉属的一种。原中华青鳉被认为是日本青鳉亚种，现已分开。而台湾青鳉原被认为是青鳉，现已归类为中华青鳉。</li>
+<li>生活于平地之池沼及河川水流缓慢处，水草茂盛处尤多。</li>
+<li>青鳉较短的生命周期（7周繁殖一代）和对严苛环境（适应温度6－40 °C）的适应性使得其成为了一种模式生物, 青鳉鱼对有毒物质及药品耐性极低。</li>
+<li>青鳉有吞食蚊子幼虫的习性，因此对灭蚊有一定的功效。</li>
+</ul>
+
+<p>参考资料:</p>
+
+<blockquote>
+<p><a href="https://zh.wikipedia.org/zh-hans/%E9%9D%92%E9%B1%82">维基百科-青鳉</a></p>
+</blockquote>
+
+<h4 id="toc_5">鳑鲏(Rhodeus sinensis)</h4>
+
+<p><img src="./中华鳑鲏(Rhodeus sinensis)-鳑鲏亚科-溪中精灵“鳑鲏”.png" alt="鳑鲏" height="160"/></p>
+
+<!--![鳑鲏](./中华鳑鲏(Rhodeus sinensis)-鳑鲏亚科-溪中精灵“鳑鲏”.png)-->
+
+<ul>
+<li>中华鳑鲏是鲤形目鲤科鳑鲏属鱼类，又称彩石鲋、菜板鱼、鳑鲏。</li>
+<li>是鲤科鱼中的一种小型鱼类 ,广泛分布于我国除黑龙江水系外其它各流域的淡水水体中。</li>
+<li>中华鳑鲏分布于朝鲜。在中国产于黄河、长江、瓯江、西江及福建省闽江、九龙江、晋江、木兰溪等水系。底栖鱼类。生活于江河、外荡、池塘、小溪及水田等静水、多草的水体中。植食性鱼类，主食藻类、水生植物碎屑等。4—6月繁殖，产卵于蚌内。1龄性成熟，怀卵量106—392粒。
+中华鳑鲏为小型鱼类，体扁肉少，几无食用价值，常作为食肉性鱼类的饵料。可作观赏鱼。</li>
+</ul>
+
+<p>参考资料:</p>
+
+<blockquote>
+<p><a href="https://blog.mcxiaoke.com/biology/fish/china-acheilognathinae-fishes.html">中国原生鱼：鳑鲏亚科鱼类</a></p>
+
+<p><a href="https://www.bilibili.com/read/cv19179016/">色彩斑斓的中华鳑鲏</a></p>
+</blockquote>
+
+<h2 id="toc_6">虾类</h2>
+
+<h3 id="toc_7">大和藻虾</h3>
+
+<p><img src="./大和藻虾.png" alt="大和藻虾" height="160"/>
+<!--![大和藻虾](./大和藻虾.png)--></p>
+
+<p>更多信息：<a href="https://www.animal.photos/fish3/shrmp-amano.htm">大和藻虾(Amano Shrimp)</a></p>
+
+<h3 id="toc_8">青虾</h3>
+
+<p><img src="./长臂虾科-沼虾属-青虾or河虾.png" alt="青虾" height="160"/>
+<!--![山坑螺](./长臂虾科-沼虾属-青虾or河虾.png)--></p>
+
+<h2 id="toc_9">螺</h2>
+
+<h3 id="toc_10">田螺</h3>
+
+<p><img src="./田螺.png" alt="田螺" height="160"/>
+<!--![田螺](./田螺.png)--></p>
+
+<h3 id="toc_11">山坑螺</h3>
+
+<p><img src="./山坑螺.png" alt="山坑螺" height="160"/>
+<!--![山坑螺](./山坑螺.png)--></p>
+
+<h2 id="toc_12">蟹</h2>
+
+<h3 id="toc_13">溪蟹</h3>
+
+<p><img src="./溪蟹.png" alt="溪蟹" height="160"/>
+<!--![溪蟹](./溪蟹.png)--></p>
+
+
+
+
+</body>
+
+</html>
